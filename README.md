@@ -4,7 +4,7 @@ Well, these are just notes...
 
 Topics:
 - JavaScript
-- TypeScript
+- [TypeScript](#typescript)
     - [Generics](#generics)
 - ReScript
 - Functional Programming
