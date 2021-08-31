@@ -13,7 +13,10 @@ Topics:
 
 # TypeScript
 
-## Generics
+<details>
+<summary id="generics">
+<h3>Generics</h3>
+</summary>
 
 Generics allow us to reuse code that can work with a variety of types
 
@@ -98,7 +101,8 @@ class DataBase<T> {
     }
 }
 
-const db = new XCoDataBasensole("2");
+const db = new DataBase("2");
 console.log(db.get());
 ```
 
+</details>
