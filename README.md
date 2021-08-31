@@ -39,7 +39,7 @@ getLength<Array<string>>(["Hello", "world!!"]); //
 
 `T` here is a type parameter, just like function parameter but for types, and you can have as many as you want. Whichever is the type of the parameter we pass to the function `getLength`, `T` will hold that information.
 
-Let's push things a biti further, let's create a `reduce` function and make it generic:
+Let's push things a bit further, let's create a `reduce` function and make it generic:
 
 ```typescript
 let reduce = (array: any, callback: any, initialValue: any) => array.reduce(callback, initialValue);
@@ -58,5 +58,47 @@ sum // result here has type of number
 
 let hello = reduce(['h', 'e', 'l', 'l', 'o'], (acc, value) => acc + value, '');
 hello // hello here has type of string
+```
+
+Here I have two type variables `T`and `I` and I could name them whatever I want, they'll hold the type information of my function parameter and could explicitly tell what they are or just let the compiler infer them.
+
+
+We can also make generic `interfaces` and `classes`, here's how:
+
+```typescript
+interface GIdentity {
+    <Value>(value: Value): Value
+}
+
+let identity = <Input>(a: Input): Input => a;
+let identity2: GIdentity = identity;
+
+identity2<string>("3");
+```
+
+```typescript
+interface GIdentity<Value> {
+    (value: Value): Value
+}
+
+let identity = <Input>(a: Input): Input => a;
+let identity2: GIdentity<number> = identity;
+
+identity2(3);
+```
+
+```typescript
+class DataBase<T> {
+    value: T;
+    constructor(value: T) {
+        this.value = value
+    }
+    get(): T {
+        return this.value;
+    }
+}
+
+const db = new XCoDataBasensole("2");
+console.log(db.get());
 ```
 
