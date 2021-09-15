@@ -153,7 +153,10 @@ If we look closer, the bottom case will always be 0 or 1, so:
 - `recursive case` would then be n > 1: F(n) = F(n - 1) + F(n - 2)
 
 ```ts
-let fib = (n: number): number => n < 2 ? n : fib(n - 1) + fib(n - 2);
+let fib = (n: number): number => {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
 ```
 
 Let's make one more recursive function, this time let's reverse an array of strings:
@@ -161,8 +164,8 @@ Let's make one more recursive function, this time let's reverse an array of stri
 ```ts
 let str  = ['o', 't', 's', 'u', 'a', 'F'];
 let reverse = ([head, ...tail]: string[]): string[] => {
-    if(!tail.length) return [head];
-    return [...reverse(tail), head];
+  if(!tail.length) return [head];
+  return [...reverse(tail), head];
 }
 ```
 
@@ -181,16 +184,16 @@ If you take a look at the Fibonacci algorithm, you can see that the `recursive c
 
 ```ts
 let fib = (n: number): number => {
-    if (n < 2) return n;
-    let result = fib(n - 1) + fib(n - 2);
-    // we could still do more stuff here
-    return result;
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
 }
 ```
 
-Not every recursive function is or needs to be tail-recursive, in the example above, we could do more things if we wanted to and then return whatever we wanted to.
+Not every recursive function is or needs to be tail-recursive, in the example above, we coul omit the return and store the result of the recursive call into a variable and do more sutff after that if we wanted to and then return whatever we wanted to.
+
 
 </details>
+
 
 <details>
 <summary id="memoization">
