@@ -195,6 +195,7 @@ Not every recursive function is or needs to be tail-recursive, in the example ab
 <details>
 <summary id="memoization">
 <h3>Memoization</h3>
+</summary>
 
 Recursive algorithms sometimes do lots of duplicated calculations and stuff, and one way of avoid those duplicated calculations is to save them somewhere(memoize).
 
@@ -214,6 +215,4 @@ let fib = (n: number, memo: Record<number, number> = {}): number => {
     return memo[n];
 }
 ```
-
-</summary>
 </details>
