@@ -141,7 +141,7 @@ F(1) = 1
 F(0) = 0
 ```
 
-However, after reaching thee bottom, we add together every resulting number from the F function, for F(3) it is: 0 + 1 + 2 = 2, so F(3) = 2
+However, after reaching thee bottom, we add together every resulting number from the F function, for F(3) it is: 0 + 1 + 1 = 2, so F(3) = 2
 
 Representing this as a tree it would look like this:
 <img src="./assets/fibonacci-tree.png" width="120" />
