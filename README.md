@@ -11,6 +11,8 @@ Topics:
 - Object-oriented Programming
 - [Algorithms](#algorithms)
     - [Recursion](#recursion)
+        - [Tail-Recursion](#tail-recursion)
+- Miscellaneous
 
 
 # TypeScript
@@ -138,13 +140,17 @@ F(0) = 0
 However, after reaching thee bottom, we add together every resulting number from the F function, for F(3) it is: 0 + 1 + 2 = 2, so F(3) = 2
 
 Representing this as a tree it would look like this:
-<img src="./assets/fibonacci-tree.png" width="80" />
+<img src="./assets/fibonacci-tree.png" width="120" />
 
 Identifying the properties from a recursive function:
 If we look closer, the bottom case will always be 0 or 1, so:
 
 - `base case` identifies as: F(0) = 0 or F(1) = 1
 - `recursive case` would then be n > 1: F(n) = F(n - 1) + F(n - 2)
+
+```ts
+let fib = (n: number): number => n < 2 ? n : fib(n - 1) + fib(n - 2);
+```
 
 Let's make one more recursive function, this time let's reverse an array of strings:
 
@@ -164,6 +170,20 @@ The way this algorithm works it that:
 
 So, our `base case` happens when we call the function with an empty array and the `recursive case` happens when do call the function with an array of elements.
 
-To be continued ...
+## Tail-Recursion
+
+Tail call is a call performed as the final action of a procedure [source](https://en.wikipedia.org/wiki/Tail_call).
+If you take a look at the Fibonacci algorithm, you can see that the `recursive case` happens at the end of the function body:
+
+```ts
+let fib = (n: number): number => {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+Not every recursive function is or needs to be tail-recursive, in the example above, we could do more things if we wanted to and then return whatever we wanted to.
+
+
 
 </details>
