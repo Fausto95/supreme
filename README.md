@@ -12,6 +12,8 @@ Topics:
 - [Algorithms](#algorithms)
     - [Recursion](#recursion)
         - [Tail-Recursion](#tail-recursion)
+    - [Memoization](#memoization)
+- Data Structures
 - Miscellaneous
 
 
@@ -131,11 +133,13 @@ When we invoke functions, they get added to the Stack and once they're done runn
 Here's the most famous recursive example: The Fibonacci sequece
 In the Fibonacci sequence each number is the sum of the two preceding ones. Say we want to calculate the Fibonacci of 3:
 
+```
 F(3) = F(1) + F(2)
 F(1) = 1
 F(2) = F(1) + F(0)
 F(1) = 1
 F(0) = 0
+```
 
 However, after reaching thee bottom, we add together every resulting number from the F function, for F(3) it is: 0 + 1 + 2 = 2, so F(3) = 2
 
@@ -178,12 +182,37 @@ If you take a look at the Fibonacci algorithm, you can see that the `recursive c
 ```ts
 let fib = (n: number): number => {
     if (n < 2) return n;
-    return fib(n - 1) + fib(n - 2);
+    let result = fib(n - 1) + fib(n - 2);
+    // we could still do more stuff here
+    return result;
 }
 ```
 
 Not every recursive function is or needs to be tail-recursive, in the example above, we could do more things if we wanted to and then return whatever we wanted to.
 
-
-
 </details>
+
+<details>
+<summary id="memoization">
+<h3>Memoization</h3>
+
+Recursive algorithms sometimes do lots of duplicated calculations and stuff, and one way of avoid those duplicated calculations is to save them somewhere(memoize).
+
+Memoization is a technique of saving previous calculations in order to avoid calculating them again and again, and we encouter a calculation that has already be done we don't need to do it again we simply return the previous result of the same.
+
+In the recursive Fibonacci sequence, there's a lot of duplicated calculations. If we calculate the F(3) we can see duplicated calculations, they have the same color in the tree-representation, can you spot them?
+
+<img src="./assets/fibonacci-tree.png" width="120" />
+
+Here's the same Fibonacci algorithm but this time it's memoized.
+
+```ts
+let fib = (n: number, memo: Record<number, number> = {}): number => {
+    if(memo[n]) return memo[n];
+    if (n < 2) return n;
+    memo[n] = fib(n - 1) + fib(n - 2);
+    return memo[n];
+}
+```
+
+</summary>
