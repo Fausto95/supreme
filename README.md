@@ -21,7 +21,7 @@ Topics:
 
 <details>
 <summary id="generics">
-<h3 style="color:#235A97">Generics</h3>
+<h3>Generics</h3>
 </summary>
 
 Generics allow us to reuse code that can work with a variety of types
@@ -118,7 +118,7 @@ console.log(db.get());
 
 <details>
 <summary id="recursion">
-<h3 style="color:#235A97">Recursion</h3>
+<h3>Recursion</h3>
 </summary>
 
 Recursion is when a function calls itself(as a subroutine) until it can't, uhnnn..
@@ -194,14 +194,14 @@ Not every recursive function is or needs to be tail-recursive, in the example ab
 
 <details>
 <summary id="memoization">
-<h3 style="color:#235A97">Memoization</h3>
+<h3>Memoization</h3>
 </summary>
 
 Recursive algorithms sometimes do lots of duplicated calculations and stuff, and one way of avoid those duplicated calculations is to save them somewhere(memoize).
 
 Memoization is a technique of saving previous calculations in order to avoid calculating them again and again, and we encouter a calculation that has already be done we don't need to do it again we simply return the previous result of the same.
 
-In the recursive Fibonacci sequence, there's a lot of duplicated calculations. If we calculate the F(3) we can see duplicated calculations, they have the same style="color:n the tree-representation, can you spot them?
+In the recursive Fibonacci sequence, there's a lot of duplicated calculations. If we calculate the F(3) we can see duplicated calculations, they have the same color in the tree-representation, can you spot them?
 
 <img src="./assets/fibonacci-tree.png" width="120" />
 
